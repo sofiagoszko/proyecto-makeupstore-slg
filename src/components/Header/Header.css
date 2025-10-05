@@ -1,0 +1,19 @@
+.navbar {
+  background-color: var(--color-primary);
+  padding: 1rem;
+}
+
+.brand {
+  font-weight: 700;
+  color: var(--color-light);
+}
+
+.link {
+  color: var(--color-light);
+  margin-right: 1rem;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: var(--color-secondary);
+}
