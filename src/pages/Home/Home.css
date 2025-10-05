@@ -1,0 +1,37 @@
+.info-home{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.border-lr {
+    border-left: 2px solid var(--color-accent);  
+    border-right: 2px solid var(--color-accent);
+    padding-left: 1rem;  
+    padding-right: 1rem;
+}
+
+.info-text {
+    display: flex;
+    justify-content: center;  
+    align-items: center;         
+}
+
+.info-text p{
+    color: var(--color-accent);
+    font-size: large;
+}
+
+.color-icon{
+    color: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+    .border-lr {
+        border: none
+    }
+
+    .info-home{
+        flex-direction: column;
+    }
+}
+

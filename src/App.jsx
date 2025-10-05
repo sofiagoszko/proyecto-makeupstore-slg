@@ -4,7 +4,7 @@ import { Container } from 'react-bootstrap';
 import Header from './components/Header/Header';
 import Navegation from './components/Navegation/Navegation';
 import Footer from './components/Footer/Footer';
-import Home from './pages/Home';
+import Home from './pages/Home/Home';
 import Contacto from './pages/Contacto';
 import Productos from './pages/Productos';
 
