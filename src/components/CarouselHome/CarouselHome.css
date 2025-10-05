@@ -1,0 +1,18 @@
+.carousel-container {
+    width: 100%;           
+    max-width: 100vw;         
+    margin: 0;
+    padding: 0; 
+}
+
+.carousel-img {
+    width: 100%;              
+    height: 50vh;             
+    object-fit: cover;     
+    object-position: center;
+    background-color: #FFF;
+}
+
+.carousel-indicators {
+    display: none;
+}
