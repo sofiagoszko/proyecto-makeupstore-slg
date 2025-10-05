@@ -20,7 +20,7 @@ h3 {
   text-decoration: none;
 }
 
-.link:hover, .email:hover {
+.link:hover, .email:hover, .font-icon:hover {
   color: var(--color-secondary);
 }
 
