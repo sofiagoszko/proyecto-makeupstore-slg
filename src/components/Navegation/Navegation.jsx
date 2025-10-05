@@ -1,17 +1,25 @@
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Container, Navbar, Nav } from 'react-bootstrap';
 import './Navegation.css';
 
 export default function Navegation() {
+    const [expanded, setExpanded] = useState(false);
+    const location = useLocation();
+
+    useEffect(() => {
+        setExpanded(false);
+    },[location]);
+
     return (
-        <Navbar className='navbar navbar-dark' expand='md'>
+        <Navbar className='navbar navbar-dark' expand='md' expanded={expanded} onToggle={() => setExpanded(!expanded)}>
             <Container>
                 <Navbar.Brand as={Link} to='/' className='brand'>
                     STORE
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls='main-navbar' />
                 <Navbar.Collapse id='main-navbar'>
-                    <Nav className='me-auto'>
+                    <Nav className='me-auto' onSelect={() => setExpanded(false)}>
                         <Nav.Link as={Link} to='/' className='link-nav'>
                             Home
                         </Nav.Link>
