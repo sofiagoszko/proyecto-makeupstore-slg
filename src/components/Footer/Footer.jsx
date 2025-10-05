@@ -41,7 +41,7 @@ export default function Footer(){
 
                 
                 <div className='footer-section'>
-                    <h3>Contáctanos</h3>
+                    <h3>Contactanos</h3>
                     <a href='mailto:info@sofiasmakeup.com' className='email'>
                         <FontAwesomeIcon icon={faEnvelope} size='lg' className='mx-2' color='#fff0f3' /> 
                         info@sofiasmakeup.com

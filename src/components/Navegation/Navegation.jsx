@@ -7,18 +7,18 @@ export default function Navegation() {
         <Navbar className='navbar navbar-dark' expand='md'>
             <Container>
                 <Navbar.Brand as={Link} to='/' className='brand'>
-                    SOFIAS'S MAKE UP
+                    STORE
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls='main-navbar' />
                 <Navbar.Collapse id='main-navbar'>
                     <Nav className='me-auto'>
-                        <Nav.Link as={Link} to='/' className='link'>
+                        <Nav.Link as={Link} to='/' className='link-nav'>
                             Home
                         </Nav.Link>
-                        <Nav.Link as={Link} to='/productos' className='link'>
+                        <Nav.Link as={Link} to='/productos' className='link-nav'>
                             Productos
                         </Nav.Link>
-                        <Nav.Link as={Link} to='/contacto' className='link'>
+                        <Nav.Link as={Link} to='/contacto' className='link-nav'>
                             Contacto
                         </Nav.Link>
                     </Nav>
