@@ -11,7 +11,7 @@ export default function Home (){
                 <CarouselHome />
             </div>
             <Container>
-                <section className='mb-4'>
+                <section className='m-4'>
                     <div className="row text-center">
                         <div className="col-12 col-md-4 p-2 info-home my-2">
                             <div>
