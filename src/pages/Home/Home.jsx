@@ -15,27 +15,27 @@ export default function Home (){
                     <div className="row text-center">
                         <div className="col-12 col-md-4 p-2 info-home my-2">
                             <div>
-                                <FontAwesomeIcon icon={faTruck} size='3x' className='color-icon'/>
+                                <FontAwesomeIcon icon={faTruck} size='3x' className='color-icon m-2'/>
                             </div>
                             <div className='info-text'>
-                                <p className="mb-2"> ENVIOS GRATIS EN COMPRAS SUPERIORES A $100.000 </p>
+                                <p className="text-center"> ENVIOS GRATIS EN COMPRAS SUPERIORES A $100.000 </p>
                             </div>
 
                         </div>
                         <div className="col-12 col-md-4 p-2 border-lr info-home">
                             <div>
-                                <FontAwesomeIcon icon={faFaceSmile} size='3x' className='color-icon' />
+                                <FontAwesomeIcon icon={faFaceSmile} size='3x' className='color-icon m-2' />
                             </div>
                             <div className='info-text'>
-                                <p className="mb-2"> 20% DE DESCUENTO EN TRANSFERENCIAS </p>
+                                <p className="text-center"> 20% DE DESCUENTO EN TRANSFERENCIAS </p>
                             </div>
                         </div>
                         <div className="col-12 col-md-4 p-2 info-home">
                             <div>
-                                <FontAwesomeIcon icon={faHeart} size='3x' className='color-icon' />
+                                <FontAwesomeIcon icon={faHeart} size='3x' className='color-icon m-2' />
                             </div>
                             <div className='info-text'>
-                                <p className="mb-2">PRODUCTOS A PEDIDO Y ENCARGOS PERSONALIZADOS</p>
+                                <p className="text-center">PRODUCTOS A PEDIDO Y ENCARGOS PERSONALIZADOS</p>
                             </div>
                         </div>
                     </div>

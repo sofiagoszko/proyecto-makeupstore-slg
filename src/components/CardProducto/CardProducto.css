@@ -29,3 +29,12 @@
 .card-body .btn-card {
     margin-top: auto;
 }
+
+.card-title, .card-text{
+    text-align: center;
+}
+
+.card-title{
+    color: var(--color-primary);
+    line-height: 1.5;
+}
