@@ -21,16 +21,18 @@ export default function CardProducto() {
 
 
     return (
-        <div className="d-flex flex-wrap justify-content-center gap-4 p-3">
+        <div className="row justify-content-center align-items-stretch g-4">
             {productos.map(producto => 
-                <Card key={producto.id} style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={producto.avatar} alt={producto.name} className='img-card'/>
-                    <Card.Body>
-                        <Card.Title>{producto.name}</Card.Title>
-                        <Card.Text>$1000</Card.Text>
-                        <Button variant="primary">Agregar al carrito</Button>
-                    </Card.Body>
-                </Card>
+                <div key={producto.id} className="col-sm-6 col-md-4 col-lg-3 d-flex">
+                    <Card className="h-100 shadow-sm w-100">
+                        <Card.Img variant="top" src={producto.avatar} alt={producto.name} className='img-card'/>
+                        <Card.Body className='card-body'>
+                            <Card.Title>{producto.name}</Card.Title>
+                            <Card.Text>$1000</Card.Text>
+                            <Button className="btn-card p-2">Agregar al carrito</Button>
+                        </Card.Body>
+                    </Card>
+                </div>
             )}
         </div>
     );

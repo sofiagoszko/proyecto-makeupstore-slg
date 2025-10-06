@@ -4,3 +4,28 @@
     height: 250px;
     background-color: #FFF;
 }
+
+.btn-card {
+    background-color: var(--color-primary) !important;
+    color: var(--color-light) !important;
+    border: none !important;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.btn-card:hover,
+.btn-card:focus,
+.btn-card:active {
+    background-color: var(--color-primary) !important;
+    color: var(--color-secondary) !important; 
+    box-shadow: none !important;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body .btn-card {
+    margin-top: auto;
+}
