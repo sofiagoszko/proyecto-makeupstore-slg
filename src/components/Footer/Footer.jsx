@@ -25,25 +25,25 @@ export default function Footer(){
                 </div>
 
                 <div className='footer-section'>
-                    <h3>Seguinos</h3>
+                    <h3>SEGUINOS</h3>
                     <div className='d-flex justify-content-center align-items-center'>
                         <a href='https://www.facebook.com/' target='_blank' className='mx-2'>
-                            <FontAwesomeIcon icon={faFacebookF} size='lg' color='#fff0f3' className='font-icon'/>
+                            <FontAwesomeIcon icon={faFacebookF} size='lg' color='#a4133c' className='font-icon'/>
                         </a>
                         <a href='https://www.instagram.com/' target='_blank' className='mx-2'>
-                            <FontAwesomeIcon icon={faInstagram} size='lg' color='#fff0f3' className='font-icon'/>
+                            <FontAwesomeIcon icon={faInstagram} size='lg' color='#a4133c' className='font-icon'/>
                         </a>
                         <a href='https://www.tiktok.com/' target='_blank' className='mx-2'>
-                            <FontAwesomeIcon icon={faTiktok} size='lg' color='#fff0f3' className='font-icon'/>
+                            <FontAwesomeIcon icon={faTiktok} size='lg' color='#a4133c' className='font-icon'/>
                         </a>
                     </div>
                 </div>
 
                 
                 <div className='footer-section'>
-                    <h3>Contactanos</h3>
+                    <h3>CONTACTANOS</h3>
                     <a href='mailto:info@sofiasmakeup.com' className='email'>
-                        <FontAwesomeIcon icon={faEnvelope} size='lg' className='mx-2' color='#fff0f3' /> 
+                        <FontAwesomeIcon icon={faEnvelope} size='lg' className='mx-2' color='#a4133c' /> 
                         info@sofiasmakeup.com
                     </a>
                 </div>

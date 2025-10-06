@@ -1,11 +1,12 @@
 .footer {
-  background-color: var(--color-primary);
-  padding-top: 10px;
+  background-color: var(--color-light);
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-primary);
 }
 
 h3 {
   font-weight: 700;
-  color: var(--color-light);
+  color: var(--color-primary);
   text-align: center;
 }
 
@@ -14,7 +15,7 @@ h3 {
 }
 
 .link, .email{
-  color: var(--color-light);
+  color: var(--color-primary);
   margin-right: 1rem;
   transition: color 0.2s ease;
   text-decoration: none;
