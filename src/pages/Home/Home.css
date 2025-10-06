@@ -39,6 +39,11 @@
     }
 }
 
+.carousel-wrapper {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+}
+
 @media (max-width: 576px) {
     .info-text p{
         font-size: small;
