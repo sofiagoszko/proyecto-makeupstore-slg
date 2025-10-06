@@ -19,7 +19,7 @@ function CarouselHome() {
   if(cargando) return <p>Cargando imágenes...</p>;
 
   return (
-      <Carousel data-bs-theme='dark' className='carousel-container p-4'>
+      <Carousel data-bs-theme='dark' className='carousel-container'>
         {imagenes.map((imagen) =>(  
           <Carousel.Item key={imagen.id}>
           <img

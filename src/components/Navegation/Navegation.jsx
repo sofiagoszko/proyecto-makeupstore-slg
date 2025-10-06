@@ -12,7 +12,7 @@ export default function Navegation() {
     },[location]);
 
     return (
-        <Navbar className='navbar navbar-dark' expand='md' expanded={expanded} onToggle={() => setExpanded(!expanded)}>
+        <Navbar className='navbar navbar-dark sticky-top' expand='md' expanded={expanded} onToggle={() => setExpanded(!expanded)}>
             <Container>
                 <Navbar.Brand as={Link} to='/' className='brand'>
                     STORE
