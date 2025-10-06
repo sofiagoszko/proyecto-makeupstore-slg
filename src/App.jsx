@@ -6,7 +6,7 @@ import Navegation from './components/Navegation/Navegation';
 import Footer from './components/Footer/Footer';
 import Home from './pages/Home/Home';
 import Contacto from './pages/Contacto';
-import Productos from './pages/Productos';
+import Productos from './pages/Productos/Productos';
 
 function App() {
   return (
