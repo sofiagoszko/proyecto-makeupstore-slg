@@ -19,6 +19,10 @@
   color: var(--color-secondary);
 }
 
+.link-nav:focus, .brand:focus {
+  color: var(--color-secondary);
+}
+
 .button {
   background-color: var(--color-light);
   color: var(--color-primary);
