@@ -2,6 +2,7 @@ import CarouselHome from '../../components/CarouselHome/CarouselHome';
 import { Container } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTruck, faFaceSmile, faHeart } from '@fortawesome/free-regular-svg-icons';
+import InfoCard from '../../components/InfoCard/InfoCard';
 import './Home.css';
 
 export default function Home (){
@@ -13,31 +14,9 @@ export default function Home (){
             <Container>
                 <section className='m-4'>
                     <div className="row text-center">
-                        <div className="col-12 col-md-4 p-2 info-home my-2">
-                            <div>
-                                <FontAwesomeIcon icon={faTruck} size='3x' className='color-icon m-2'/>
-                            </div>
-                            <div className='info-text'>
-                                <p className="text-center"> ENVIOS GRATIS EN COMPRAS SUPERIORES A $100.000 </p>
-                            </div>
-
-                        </div>
-                        <div className="col-12 col-md-4 p-2 border-lr info-home">
-                            <div>
-                                <FontAwesomeIcon icon={faFaceSmile} size='3x' className='color-icon m-2' />
-                            </div>
-                            <div className='info-text'>
-                                <p className="text-center"> 20% DE DESCUENTO EN TRANSFERENCIAS </p>
-                            </div>
-                        </div>
-                        <div className="col-12 col-md-4 p-2 info-home">
-                            <div>
-                                <FontAwesomeIcon icon={faHeart} size='3x' className='color-icon m-2' />
-                            </div>
-                            <div className='info-text'>
-                                <p className="text-center">PRODUCTOS A PEDIDO Y ENCARGOS PERSONALIZADOS</p>
-                            </div>
-                        </div>
+                        <InfoCard icon={faTruck} text="ENVIOS GRATIS EN COMPRAS SUPERIORES A $100.000" />
+                        <InfoCard icon={faFaceSmile} text="20% DE DESCUENTO EN TRANSFERENCIAS" border />
+                        <InfoCard icon={faHeart} text="PRODUCTOS A PEDIDO Y ENCARGOS PERSONALIZADOS" />    
                     </div>
                 </section>
             </Container>

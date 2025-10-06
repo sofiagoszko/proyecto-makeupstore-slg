@@ -25,3 +25,13 @@
 p{
     text-align: justify;
 }
+
+@media (max-width: 970px) {
+    .col-imagen-contacto {
+        display: none !important;
+    }
+
+    .col-md-6 {
+        width: 100%;
+    }
+}

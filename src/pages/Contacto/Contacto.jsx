@@ -60,7 +60,7 @@ export default function Contacto(){
               </Button>
             </Form>
           </Col>
-          <Col md={6} className="d-none d-md-block">
+          <Col md={6} className="col-imagen-contacto">
             <img
               src={contacto2}
               alt="imagen-formulario de contacto"
