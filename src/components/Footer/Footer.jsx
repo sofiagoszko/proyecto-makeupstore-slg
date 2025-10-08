@@ -16,10 +16,10 @@ export default function Footer(){
                             <Link as={Link} to='/' className='link'>Home</Link>
                         </li>
                         <li>
-                            <Link as={Link} to='/' className='link'>Productos</Link>
+                            <Link as={Link} to='/productos' className='link'>Productos</Link>
                         </li>
                         <li>
-                            <Link as={Link} to='/' className='link'>Contacto</Link>
+                            <Link as={Link} to='/contacto' className='link'>Contacto</Link>
                         </li>
                     </ul>
                 </div>
