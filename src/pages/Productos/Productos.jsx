@@ -27,6 +27,7 @@ export default function Productos(){
 
   useEffect(() => {
     if (categoriaUrl) setCategoria(categoriaUrl);
+    else setCategoria('todos');
   }, [categoriaUrl]);
 
 
@@ -48,7 +49,7 @@ export default function Productos(){
       ? 'NUESTROS PRODUCTOS'
       : `${categoria.toUpperCase()}`;
 
-
+        
   return (
     <>
       <div className="mt-2">
