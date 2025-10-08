@@ -7,7 +7,6 @@ import Footer from './components/Footer/Footer';
 import Home from './pages/Home/Home';
 import Contacto from './pages/Contacto/Contacto';
 import Productos from './pages/Productos/Productos';
-import ProductosPorCategoria from './pages/Productos/ProductosPorCategoria';
 import './styles/global.css';
 
 function App() {
@@ -20,7 +19,7 @@ function App() {
           <Routes>
             <Route path='/' element={ <Home /> } />
             <Route path='/productos' element={ <Productos /> } />
-            <Route path='/productos/:categoria' element={ <ProductosPorCategoria /> } />
+            <Route path='/productos/:categoria' element={ <Productos /> } />
             <Route path='/contacto' element={ <Contacto /> } />
           </Routes>
         </Container> 

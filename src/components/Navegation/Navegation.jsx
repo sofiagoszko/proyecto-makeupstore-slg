@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Container, Navbar, Nav } from 'react-bootstrap';
+import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import './Navegation.css';
 
 export default function Navegation() {
@@ -12,7 +12,7 @@ export default function Navegation() {
     },[location]);
 
     return (
-        <Navbar className='navbar navbar-dark sticky-top' expand='md' expanded={expanded} onToggle={() => setExpanded(!expanded)}>
+        <Navbar className='navbar navbar-dark sticky-top' expand='lg' expanded={expanded} onToggle={() => setExpanded(!expanded)}>
             <Container>
                 <Navbar.Brand as={Link} to='/' className='brand'>
                     STORE
@@ -23,12 +23,17 @@ export default function Navegation() {
                         <Nav.Link as={Link} to='/' className='link-nav'>
                             Home
                         </Nav.Link>
-                        <Nav.Link as={Link} to='/productos' className='link-nav'>
-                            Productos
-                        </Nav.Link>
+
                         <Nav.Link as={Link} to='/contacto' className='link-nav'>
                             Contacto
                         </Nav.Link>
+    
+                        <NavDropdown title="Producto"  className='link-nav'>
+                            <NavDropdown.Item  as={Link} to="/productos">Todos</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/productos/rostro">Rostro</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/productos/ojos">Ojos</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/productos/labios">Labios</NavDropdown.Item>
+                        </NavDropdown>
                     </Nav>
                     <form className='d-flex' role='search'>
                         <input className='form-control me-2' type='search' placeholder='Search' aria-label='Search'/>

@@ -9,17 +9,17 @@
   color: var(--color-primary);
 }
 
-.link-nav {
+.link-nav, .nav-link {
   color: var(--color-primary);
   margin-right: 1rem;
   transition: color 0.2s ease;
 }
 
-.link-nav:hover, .brand:hover {
+.link-nav:hover, .brand:hover, .nav-link:hover {
   color: var(--color-secondary);
 }
 
-.link-nav:focus, .brand:focus {
+.link-nav:focus, .brand:focus, .nav-link:focus {
   color: var(--color-secondary);
 }
 
