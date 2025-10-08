@@ -14,7 +14,7 @@ export default function Productos(){
       fetch('https://68e2cbbc8e14f4523dabd226.mockapi.io/api/v1/productos')
       .then((res) => res.json())
       .then((data) =>{
-      setProductos(data);
+        setProductos(data);
       })
       .catch((error) => console.error('Error al cargar productos: ', error))
       .finally(() => setCargando(false))
