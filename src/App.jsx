@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 import { Container } from 'react-bootstrap';
 import Header from './components/Header/Header';
 import Navegation from './components/Navegation/Navegation';
@@ -7,6 +7,7 @@ import Footer from './components/Footer/Footer';
 import Home from './pages/Home/Home';
 import Contacto from './pages/Contacto/Contacto';
 import Productos from './pages/Productos/Productos';
+import Login from './pages/Login/Login';
 import './styles/global.css';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Navegation />
         <Container className="flex-grow-1">
           <Routes>
+            <Route path='/login' element={ <Login /> } />
             <Route path='/' element={ <Home /> } />
             <Route path='/productos' element={ <Productos /> } />
             <Route path='/productos/:categoria' element={ <Productos /> } />

@@ -55,7 +55,7 @@ export default function Contacto(){
                 <Form.Control as="textarea" rows={3} required/>
               </Form.Group>
 
-              <Button className='btn-form' type="submit">
+              <Button className='btn-card' type="submit">
                 Enviar
               </Button>
             </Form>

@@ -6,22 +6,6 @@
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-.btn-form {
-    background-color: var(--color-primary) !important;
-    color: var(--color-light) !important;
-    border: none !important;
-    border-radius: 5px;
-    width: 100%;
-}
-
-.btn-form:hover,
-.btn-form:focus,
-.btn-form:active {
-    background-color: var(--color-primary) !important;
-    color: var(--color-secondary) !important; 
-    box-shadow: none !important;
-}
-
 p{
     text-align: justify;
 }
