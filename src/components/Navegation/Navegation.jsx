@@ -52,19 +52,19 @@ export default function Navegation() {
                         </NavDropdown>
                     </Nav>
 
-                    <div className='d-flex align-items-center'>
+                    <Nav className='ms-auto flex-column flex-lg-row'>
                         {isAuth && (
                             <>
                                 <Nav.Link as={Link} to='#'>Perfil</Nav.Link>
-                                <Button variant='Link' className='link-nav' onClick={cerrarSesion}>Cerrar sesión</Button>
+                                <Nav.Link className='link-nav' onClick={cerrarSesion}>Cerrar sesión</Nav.Link>
                             </>
                         )}
                         {!isAuth && (
                             <Nav.Link as={Link} to='/login'>Login</Nav.Link>
                         )}
-                    </div>
+                    </Nav>
                 </Navbar.Collapse>
-                <Link to='/carrito' className='link-nav'>
+                <Link to='/carrito' className='link-nav my-2'>
                     <FontAwesomeIcon icon={faShoppingCart} size='lg' color='#a4133c'/>
                     {totalItems > 0 && (
                         <Badge bg='danger' className='ms-1'>{totalItems}</Badge>

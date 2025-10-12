@@ -1,13 +1,25 @@
 import { useCarrito } from '../../components/CarritoContext/CarritoContext';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { Container, Table, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan, faSquarePlus } from '@fortawesome/free-regular-svg-icons';
+import Swal from 'sweetalert2';
 import './Carrito.css';
 
 export default function Carrito() {
     const auth = localStorage.getItem('auth') === 'true';
-    const { carrito, agregarAlCarrito, eliminarDelCarrito } = useCarrito();
+    const { carrito, agregarAlCarrito, eliminarDelCarrito, vaciarCarrito } = useCarrito();
+    const navigate = useNavigate();
+
+    const pagarCompra = () => {
+        Swal.fire({
+          title: 'Pedido realizado!',
+          icon: 'success',
+          confirmButtonText: 'Aceptar',
+        });
+        vaciarCarrito();
+        navigate("/");
+    }
 
     if (!auth) {
         return <Navigate to='/login' />;
@@ -34,7 +46,6 @@ export default function Carrito() {
                 <thead>
                     <tr>
                         <th>Producto</th>
-                        <th>Precio</th>
                         <th>Cantidad</th>
                         <th>Total</th>
                         <th>Acciones</th>
@@ -45,7 +56,6 @@ export default function Carrito() {
                     {carrito.map((item) => (
                         <tr key={item.id}>
                             <td>{item.name}</td>
-                            <td>$ {item.precio}</td>
                             <td>{item.cantidad}</td>
                             <td>$ { item.precio * item.cantidad }</td>
                             <td>
@@ -62,6 +72,7 @@ export default function Carrito() {
             </Table>
 
             <h4 className='text-end mt-3 carrito-title'>Total: $ {total.toFixed(2)}</h4>
+            <Button className='btn-card' onClick={pagarCompra}>Pagar</Button>
         </Container>
     );
 }
