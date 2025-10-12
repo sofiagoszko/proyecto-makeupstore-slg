@@ -1,11 +1,10 @@
 import { Button, Card} from 'react-bootstrap';
+import { useCarrito } from '../CarritoContext/CarritoContext';
 import './CardProducto.css';
 
 export default function CardProducto({productos}) {
 
-    const agregarAlCarrito = () => {
-        alert('producto agregado');
-    }
+    const { agregarAlCarrito } = useCarrito(); 
 
     return (
         <>
