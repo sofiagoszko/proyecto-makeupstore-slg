@@ -3,6 +3,10 @@ import './CardProducto.css';
 
 export default function CardProducto({productos}) {
 
+    const agregarAlCarrito = () => {
+        alert('producto agregado');
+    }
+
     return (
         <>
             <div className="row justify-content-center align-items-stretch g-4">
@@ -13,7 +17,7 @@ export default function CardProducto({productos}) {
                             <Card.Body className='card-body'>
                                 <Card.Title>{producto.name}</Card.Title>
                                 <Card.Text>$ {producto.precio}</Card.Text>
-                                <Button className="btn-card p-2">Agregar al carrito</Button>
+                                <Button className="btn-card p-2" onClick={() => agregarAlCarrito(producto)}>Agregar al carrito</Button>
                             </Card.Body>
                         </Card>
                     </div>
