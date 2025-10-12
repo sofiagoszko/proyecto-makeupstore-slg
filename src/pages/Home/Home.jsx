@@ -8,15 +8,15 @@ import './Home.css';
 export default function Home (){
     return(
         <>
-            <div className="carousel-wrapper">
+            <div className='carousel-wrapper'>
                 <CarouselHome />
             </div>
             <Container>
                 <section className='m-4'>
-                    <div className="row text-center">
-                        <InfoCard icon={faTruck} text="ENVIOS GRATIS EN COMPRAS SUPERIORES A $100.000" />
-                        <InfoCard icon={faFaceSmile} text="20% DE DESCUENTO EN TRANSFERENCIAS" border />
-                        <InfoCard icon={faHeart} text="PRODUCTOS A PEDIDO Y ENCARGOS PERSONALIZADOS" />    
+                    <div className='row text-center'>
+                        <InfoCard icon={faTruck} text='ENVIOS GRATIS EN COMPRAS SUPERIORES A $100.000' />
+                        <InfoCard icon={faFaceSmile} text='20% DE DESCUENTO EN TRANSFERENCIAS' border />
+                        <InfoCard icon={faHeart} text='PRODUCTOS A PEDIDO Y ENCARGOS PERSONALIZADOS' />    
                     </div>
                 </section>
             </Container>

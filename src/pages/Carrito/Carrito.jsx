@@ -10,7 +10,7 @@ export default function Carrito() {
     const { carrito, agregarAlCarrito, eliminarDelCarrito } = useCarrito();
 
     if (!auth) {
-        return <Navigate to="/login" />;
+        return <Navigate to='/login' />;
     }
 
     const total = carrito.reduce (

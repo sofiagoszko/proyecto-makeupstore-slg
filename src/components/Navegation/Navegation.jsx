@@ -62,14 +62,14 @@ export default function Navegation() {
                         {!isAuth && (
                             <Nav.Link as={Link} to='/login'>Login</Nav.Link>
                         )}
-                        <Link to='/carrito' className='link-nav ms-2'>
-                            <FontAwesomeIcon icon={faShoppingCart} size='lg' color='#a4133c'/>
-                            {totalItems > 0 && (
-                                <Badge bg='danger' className='ms-1'>{totalItems}</Badge>
-                            )}
-                        </Link>
                     </div>
                 </Navbar.Collapse>
+                <Link to='/carrito' className='link-nav'>
+                    <FontAwesomeIcon icon={faShoppingCart} size='lg' color='#a4133c'/>
+                    {totalItems > 0 && (
+                        <Badge bg='danger' className='ms-1'>{totalItems}</Badge>
+                    )}
+                </Link>
             </Container>
         </Navbar>
     );
