@@ -57,7 +57,7 @@ export default function Carrito() {
                         <tr key={item.id}>
                             <td>{item.name}</td>
                             <td>{item.cantidad}</td>
-                            <td>$ { item.precio * item.cantidad }</td>
+                            <td className='text-nowrap'>$ { item.precio * item.cantidad }</td>
                             <td>
                                 <Button variant='link' className='p-0 me-2' onClick={() => eliminarDelCarrito(item.id)}>
                                     <FontAwesomeIcon icon={faTrashCan} size='lg' color='#a4133c' className='font-icon'/>
