@@ -1,0 +1,25 @@
+
+.categoria-card {
+  width: 300px; 
+  height: 380px;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.categoria-img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.categoria-card-body {
+    background-color: rgba(255, 255, 255, 0.8);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 0.75rem;
+    backdrop-filter: blur(4px);
+}
