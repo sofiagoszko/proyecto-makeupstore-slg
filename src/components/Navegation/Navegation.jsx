@@ -1,13 +1,17 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Container, Navbar, Nav, NavDropdown, Button } from 'react-bootstrap';
+import { Container, Navbar, Nav, NavDropdown, Badge } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { useCarrito } from '../CarritoContext/CarritoContext';
 import './Navegation.css';
 
 export default function Navegation() {
     const [expanded, setExpanded] = useState(false);
     const location = useLocation();
+    const { carrito } = useCarrito();
+
+    const totalItems = carrito.length;
 
     useEffect(() => {
         setExpanded(false);
@@ -44,6 +48,9 @@ export default function Navegation() {
                         </Nav.Link>
                         <Link to="/carrito" className="link-nav ms-2">
                             <FontAwesomeIcon icon={faShoppingCart} size="lg" color='#a4133c'/>
+                            {totalItems > 0 && (
+                                <Badge bg="danger" className="ms-1">{totalItems}</Badge>
+                            )}
                         </Link>
                     </div>
                 </Navbar.Collapse>

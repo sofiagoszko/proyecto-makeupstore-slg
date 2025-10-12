@@ -11,7 +11,7 @@ export default function Carrito() {
         0
     );
 
-    if (carrito.lenght === 0) {
+    if (carrito.length === 0) {
         return (
             <Container className="my-5 text-center">
                 <h3>Carrito vacío</h3>
