@@ -1,0 +1,7 @@
+.carrito-title{
+    color: var(--color-primary);
+}
+
+th, td{
+    color: var(--color-primary) !important;
+}
