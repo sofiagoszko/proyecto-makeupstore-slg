@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import { Container, Navbar, Nav, NavDropdown, Button } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import './Navegation.css';
 
 export default function Navegation() {
@@ -35,10 +37,15 @@ export default function Navegation() {
                             <NavDropdown.Item as={Link} to="/productos/labios">Labios</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
-                    <form className='d-flex' role='search'>
-                        <input className='form-control me-2' type='search' placeholder='Search' aria-label='Search'/>
-                        <button className='button' type='submit'>Search</button>
-                    </form>
+
+                    <div className="d-flex align-items-center">
+                        <Nav.Link as={Link} to='/login' className='link-nav'>
+                            Login
+                        </Nav.Link>
+                        <Link to="/carrito" className="link-nav ms-2">
+                            <FontAwesomeIcon icon={faShoppingCart} size="lg" color='#a4133c'/>
+                        </Link>
+                    </div>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
