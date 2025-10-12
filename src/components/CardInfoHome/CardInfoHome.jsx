@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import './InfoCard.css';
+import './CardInfoHome.css';
 
 export default function InfoCard ({icon, text, border}){
     return (
