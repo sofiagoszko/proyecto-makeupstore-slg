@@ -1,11 +1,17 @@
 import { useCarrito } from '../../components/CarritoContext/CarritoContext';
+import { Navigate } from 'react-router-dom';
 import { Container, Table, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {  faTrashCan, faSquarePlus } from '@fortawesome/free-regular-svg-icons';
+import { faTrashCan, faSquarePlus } from '@fortawesome/free-regular-svg-icons';
 import './Carrito.css';
 
 export default function Carrito() {
+    const auth = localStorage.getItem('auth') === 'true';
     const { carrito, agregarAlCarrito, eliminarDelCarrito } = useCarrito();
+
+    if (!auth) {
+        return <Navigate to="/login" />;
+    }
 
     const total = carrito.reduce (
         (acc, item) => acc + item.precio*item.cantidad,

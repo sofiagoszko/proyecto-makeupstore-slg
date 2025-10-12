@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Container, Navbar, Nav, NavDropdown, Badge } from 'react-bootstrap';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Container, Navbar, Nav, NavDropdown, Badge, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { useCarrito } from '../CarritoContext/CarritoContext';
@@ -10,6 +10,16 @@ export default function Navegation() {
     const [expanded, setExpanded] = useState(false);
     const location = useLocation();
     const { carrito } = useCarrito();
+    const navigate = useNavigate();
+
+    const isAuth = localStorage.getItem('auth') === 'true';
+
+    const cerrarSesion = () => 
+        {
+            localStorage.removeItem('auth');
+            navigate('/');
+    };
+
 
     const totalItems = carrito.length;
 
@@ -34,22 +44,28 @@ export default function Navegation() {
                             Contacto
                         </Nav.Link>
     
-                        <NavDropdown title="Producto"  className='link-nav'>
-                            <NavDropdown.Item  as={Link} to="/productos">Todos</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/productos/rostro">Rostro</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/productos/ojos">Ojos</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/productos/labios">Labios</NavDropdown.Item>
+                        <NavDropdown title='Producto'  className='link-nav'>
+                            <NavDropdown.Item  as={Link} to='/productos'>Todos</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to='/productos/rostro'>Rostro</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to='/productos/ojos'>Ojos</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to='/productos/labios'>Labios</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
 
-                    <div className="d-flex align-items-center">
-                        <Nav.Link as={Link} to='/login' className='link-nav'>
-                            Login
-                        </Nav.Link>
-                        <Link to="/carrito" className="link-nav ms-2">
-                            <FontAwesomeIcon icon={faShoppingCart} size="lg" color='#a4133c'/>
+                    <div className='d-flex align-items-center'>
+                        {isAuth && (
+                            <>
+                                <Nav.Link as={Link} to='#'>Perfil</Nav.Link>
+                                <Button variant='Link' className='link-nav' onClick={cerrarSesion}>Cerrar sesión</Button>
+                            </>
+                        )}
+                        {!isAuth && (
+                            <Nav.Link as={Link} to='/login'>Login</Nav.Link>
+                        )}
+                        <Link to='/carrito' className='link-nav ms-2'>
+                            <FontAwesomeIcon icon={faShoppingCart} size='lg' color='#a4133c'/>
                             {totalItems > 0 && (
-                                <Badge bg="danger" className="ms-1">{totalItems}</Badge>
+                                <Badge bg='danger' className='ms-1'>{totalItems}</Badge>
                             )}
                         </Link>
                     </div>

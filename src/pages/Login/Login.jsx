@@ -1,11 +1,13 @@
 import { Form, Button, Container, Row, Col, Card } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
 export default function Login() {
+    const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        alert('Login enviado');
+    const handleSubmit = () => {   
+        localStorage.setItem('auth', 'true');
+        navigate('/');
     };
 
     return (
