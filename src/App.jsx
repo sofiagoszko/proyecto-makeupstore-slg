@@ -8,6 +8,7 @@ import Home from './pages/Home/Home';
 import Contacto from './pages/Contacto/Contacto';
 import Productos from './pages/Productos/Productos';
 import Login from './pages/Login/Login';
+import NotFound from './pages/NotFound/NotFound';
 import Carrito from './pages/Carrito/Carrito';
 import { CarritoProvider } from './components/CarritoContext/CarritoContext';
 import './styles/global.css';
@@ -28,6 +29,7 @@ function App() {
             <Route path='/productos/:categoria' element={ <Productos /> } />
             <Route path='/contacto' element={ <Contacto /> } />
             <Route path='/carrito' element={ <Carrito /> } />
+            <Route path='*' element={ <NotFound /> } />
           </Routes>
         </Container> 
         <Footer />
