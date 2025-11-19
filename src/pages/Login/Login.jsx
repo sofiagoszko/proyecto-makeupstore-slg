@@ -8,12 +8,16 @@ export default function Login() {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-    const handleSubmit = () => {   
+    const handleSubmit = (e) => {   
+        e.preventDefault();
         localStorage.setItem('auth', 'true');
-        if(user === 'admin' || password === '123'){
+        if(user === 'admin' && password === '123'){
+            localStorage.setItem('admin', 'true');
             navigate('/admin');
+        }else{
+            navigate('/');
         }
-        navigate('/');
+
     };
 
     return (
@@ -30,8 +34,8 @@ export default function Login() {
                                 </Form.Group>
 
                                 <Form.Group className='mb-3' controlId='formPassword'>
-                                <Form.Label>Contraseña</Form.Label>
-                                <Form.Control type='password' placeholder='Ingrese su contraseña' value={password} onChange={(e)=>setPassword(e.target.value)} required />
+                                    <Form.Label>Contraseña</Form.Label>
+                                    <Form.Control type='password' placeholder='Ingrese su contraseña' value={password} onChange={(e)=>setPassword(e.target.value)} required />
                                 </Form.Group>
 
                                 <Button type='submit' className='btn-card'>
