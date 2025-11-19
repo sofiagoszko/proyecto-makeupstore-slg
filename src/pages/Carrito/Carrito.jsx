@@ -3,6 +3,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import { Container, Table, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan, faSquarePlus } from '@fortawesome/free-regular-svg-icons';
+import ButtonForm from '../../components/ButtonForm/ButtonForm';
 import Swal from 'sweetalert2';
 import './Carrito.css';
 
@@ -51,7 +52,6 @@ export default function Carrito() {
                         <th>Acciones</th>
                     </tr>
                 </thead>
-
                 <tbody>
                     {carrito.map((item) => (
                         <tr key={item.id}>
@@ -72,7 +72,7 @@ export default function Carrito() {
             </Table>
 
             <h4 className='text-end mt-3 carrito-title'>Total: $ {total.toFixed(2)}</h4>
-            <Button className='btn-card' onClick={pagarCompra}>Pagar</Button>
+            <ButtonForm buttonText='Pagar' />
         </Container>
     );
 }

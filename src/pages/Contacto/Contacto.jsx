@@ -4,6 +4,7 @@ import {Form, Col, Row, Button, InputGroup } from 'react-bootstrap';
 import contacto from '../../assets/contacto.jpg';
 import contacto2 from '../../assets/contacto-2.jpg';
 import Banner from '../../components/Banner/Banner';
+import ButtonForm from '../../components/ButtonForm/ButtonForm';
 import './Contacto.css';
 
 export default function Contacto(){
@@ -15,7 +16,6 @@ export default function Contacto(){
       event.preventDefault();
       event.stopPropagation();
     }
-
     setValidated(true);
   };
 
@@ -38,26 +38,20 @@ export default function Contacto(){
                   <Form.Label>Nombre</Form.Label>
                   <Form.Control type='text' required/>
                 </Form.Group>
-
                 <Form.Group as={Col} controlId='formApellido'>
                   <Form.Label>Apellido</Form.Label>
                   <Form.Control type='text' required/>
                 </Form.Group>
               </Row>
-
               <Form.Group className='mb-3' controlId='formGridAddress1'>
                 <Form.Label>Email</Form.Label>
                 <Form.Control typeof='email' required/>
               </Form.Group>
-
               <Form.Group className='mb-3' controlId='exampleForm.ControlTextarea1'>
                 <Form.Label>Ingresa tu consulta</Form.Label>
                 <Form.Control as='textarea' rows={3} required/>
               </Form.Group>
-
-              <Button className='btn-card' type='submit'>
-                Enviar
-              </Button>
+              <ButtonForm buttonText='Enviar'/>
             </Form>
           </Col>
           <Col md={6} className='col-imagen-contacto'>

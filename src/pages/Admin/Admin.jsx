@@ -3,6 +3,7 @@ import { Navigate } from 'react-router-dom';
 import { Container, Table, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan, faPenToSquare } from '@fortawesome/free-regular-svg-icons';
+import ButtonForm from '../../components/ButtonForm/ButtonForm';
 import './AdminCrud.css';
 
 export default function Admin(){
@@ -31,9 +32,7 @@ export default function Admin(){
     return(
         <Container>
             <h1 className='mb-3 mb-md-0 my-4'>Portal administador</h1>
-            <div className='mb-4 text-start text-md-end'>
-                <Button className='btn-card'>Nuevo Producto</Button>
-            </div>
+            <ButtonForm buttonText='Nuevo Producto' />
             <Table striped bordered hover>
                 <thead>
                     <tr>
