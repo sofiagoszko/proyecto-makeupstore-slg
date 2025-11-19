@@ -30,7 +30,10 @@ export default function Admin(){
 
     return(
         <Container>
-            <h1 className='my-4'>Portal administador</h1>
+            <h1 className='mb-3 mb-md-0 my-4'>Portal administador</h1>
+            <div className='mb-4 text-start text-md-end'>
+                <Button className='btn-card'>Nuevo Producto</Button>
+            </div>
             <Table striped bordered hover>
                 <thead>
                     <tr>
