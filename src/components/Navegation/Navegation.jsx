@@ -9,7 +9,7 @@ import './Navegation.css';
 export default function Navegation() {
     const [expanded, setExpanded] = useState(false);
     const location = useLocation();
-    const { carrito } = useCarrito();
+    const { carrito, vaciarCarrito } = useCarrito();
     const navigate = useNavigate();
     const isAuth = localStorage.getItem('auth') === 'true';
     const isAdmin = localStorage.getItem('admin') === 'true';
@@ -18,6 +18,7 @@ export default function Navegation() {
         {
             localStorage.removeItem('auth');
             localStorage.removeItem('admin');
+            vaciarCarrito();
             navigate('/');
     };
 
