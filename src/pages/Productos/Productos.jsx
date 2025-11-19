@@ -14,9 +14,10 @@ export default function Productos(){
   const [productos, setProductos] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [categoria, setCategoria] = useState(categoriaUrl || 'todos');
+  const BASE_URL = import.meta.env.VITE_BASE_URL;
 
   useEffect(() => {
-      fetch('https://68e2cbbc8e14f4523dabd226.mockapi.io/api/v1/productos')
+      fetch(`${BASE_URL}/productos`)
       .then((res) => res.json())
       .then((data) =>{
         setProductos(data);

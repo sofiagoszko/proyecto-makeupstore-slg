@@ -5,9 +5,10 @@ import './CarouselHome.css';
 function CarouselHome() {
   const [imagenes, setImagenes] = useState([]);
   const [cargando, setCargando] = useState(true);
+  const BASE_URL = import.meta.env.VITE_BASE_URL;
 
   useEffect(() => {
-    fetch('https://68e2cbbc8e14f4523dabd226.mockapi.io/api/v1/carousel')
+    fetch(`${BASE_URL}/carousel`)
     .then((res) => res.json())
     .then((data) =>{
       setImagenes(data);
