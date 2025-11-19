@@ -11,15 +11,14 @@ export default function Navegation() {
     const location = useLocation();
     const { carrito } = useCarrito();
     const navigate = useNavigate();
-
     const isAuth = localStorage.getItem('auth') === 'true';
+    const isAdmin = localStorage.getItem('admin') === 'true';
 
     const cerrarSesion = () => 
         {
             localStorage.removeItem('auth');
             navigate('/');
     };
-
 
     const totalItems = carrito.length;
 
@@ -39,17 +38,19 @@ export default function Navegation() {
                         <Nav.Link as={Link} to='/' className='link-nav'>
                             Home
                         </Nav.Link>
-
                         <Nav.Link as={Link} to='/contacto' className='link-nav'>
                             Contacto
                         </Nav.Link>
-    
                         <NavDropdown title='Producto'  className='link-nav'>
                             <NavDropdown.Item  as={Link} to='/productos'>Todos</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to='/productos/rostro'>Rostro</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to='/productos/ojos'>Ojos</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to='/productos/labios'>Labios</NavDropdown.Item>
                         </NavDropdown>
+                        {isAdmin && (
+                                <Nav.Link as={Link} to='/admin'>Administración</Nav.Link>
+                            )
+                        }
                     </Nav>
 
                     <Nav className='ms-auto flex-column flex-lg-row'>
