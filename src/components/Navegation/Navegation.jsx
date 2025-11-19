@@ -17,6 +17,7 @@ export default function Navegation() {
     const cerrarSesion = () => 
         {
             localStorage.removeItem('auth');
+            localStorage.removeItem('admin');
             navigate('/');
     };
 

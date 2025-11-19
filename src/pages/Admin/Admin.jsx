@@ -6,7 +6,8 @@ import { faTrashCan, faPenToSquare } from '@fortawesome/free-regular-svg-icons';
 import './AdminCrud.css';
 
 export default function Admin(){
-    const admin = localStorage.getItem('admin') === 'true';
+    const isAdmin = localStorage.getItem('admin') === 'true';
+    const isAuth = localStorage.getItem('auth') === 'true';
     const [productos, setProductos] = useState([]);
     const BASE_URL = import.meta.env.VITE_BASE_URL;
     
@@ -18,13 +19,13 @@ export default function Admin(){
     };
 
     useEffect(() => {
-        if(admin){
+        if(isAdmin && isAuth){
             getProductos();
         }
-    },[admin]);
+    },[isAuth, isAdmin]);
 
-    if(!admin){
-        return <Navigate to={'/'}/>
+    if(!isAuth || !isAdmin){
+        return <Navigate to='/' replace />
     };
 
     return(
