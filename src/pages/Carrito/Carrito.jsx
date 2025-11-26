@@ -57,7 +57,7 @@ export default function Carrito() {
                         <tr key={item.id}>
                             <td>{item.name}</td>
                             <td>{item.cantidad}</td>
-                            <td className='text-nowrap'>$ { item.precio * item.cantidad }</td>
+                            <td className='text-nowrap'>$ { Number(item.precio * item.cantidad).toFixed(2) }</td>
                             <td>
                                 <Button variant='link' className='p-0 me-2' onClick={() => eliminarDelCarrito(item.id)}>
                                     <FontAwesomeIcon icon={faTrashCan} size='lg' color='#a4133c' className='font-icon'/>
@@ -71,7 +71,7 @@ export default function Carrito() {
                 </tbody>
             </Table>
 
-            <h4 className='text-end mt-3 carrito-title'>Total: $ {total.toFixed(2)}</h4>
+            <h4 className='text-end mt-3 carrito-title'>Total: $ {Number(total).toFixed(2)}</h4>
             <ButtonForm buttonText='Pagar' onClick={pagarCompra} type='button'/>
         </Container>
     );
