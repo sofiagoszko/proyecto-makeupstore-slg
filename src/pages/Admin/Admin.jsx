@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan, faPenToSquare } from '@fortawesome/free-regular-svg-icons';
 import ButtonForm from '../../components/ButtonForm/ButtonForm';
 import Swal from 'sweetalert2';
+import { Formik } from 'formik';
+import * as yup from 'yup';
 import './AdminCrud.css';
 
 export default function Admin(){
@@ -16,12 +18,19 @@ export default function Admin(){
     const [form, setForm] = useState({
         name: '',
         avatar: '',
-        stock: 0,
+        stock: '',
         categoria: '',
         precio: '',
     });
     const [edit, setEdit] = useState(null);
-    
+
+    const schema = yup.object().shape({
+        name: yup.string().required('Ingrese el nombre del producto'),
+        avatar: yup.string().url('Ingrese una URL válida').required('Ingrese una imagen'),
+        stock: yup.number().min(0,'El stock debe ser mayor o igual a 0').required('Ingrese el stock'),
+        categoria: yup.string().required('Seleccione una categoría'),
+        precio: yup.number().positive('El precio debe ser mayor a 0').required('Ingrese el precio'),
+    });
     
     const getProductos = () =>{
         fetch(`${BASE_URL}/productos`)
@@ -72,16 +81,13 @@ export default function Admin(){
         }
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
+    const handleSubmit = (values) => {
         const productData = {
-            ...form,
-            name: form.name,
-            avatar: form.avatar,
-            stock: Number(form.stock),
-            categoria: form.categoria,
-            precio: form.precio,
+            name: values.name,
+            avatar: values.avatar,
+            stock: Number(values.stock),
+            categoria: values.categoria,
+            precio: values.precio,
         };
 
         const method = edit ? 'PUT' : 'POST';
@@ -176,64 +182,97 @@ export default function Admin(){
                 <Modal.Title className='modal-title'>{edit ? 'Editar' : 'Agregar'} Producto</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                <Form onSubmit={handleSubmit}>
-                    <Form.Group className='mb-2'>
-                    <Form.Label>Producto</Form.Label>
-                    <Form.Control
-                        value={form.name}
-                        onChange={(e) => setForm({ ...form, name: e.target.value })}
-                        required
-                    />
-                    </Form.Group>
+                    <Formik
+                        validationSchema={schema}
+                        onSubmit={handleSubmit}
+                        initialValues={form}
+                    >
+                    {({ handleSubmit, handleChange, values, touched, errors }) => (    
+                        <Form onSubmit={handleSubmit}>
+                            <Form.Group className='mb-2' controlId='validationFormikName'>
+                                <Form.Label>Producto</Form.Label>
+                                <Form.Control
+                                    type='text'
+                                    name='name'
+                                    value={values.name}
+                                    onChange={handleChange}
+                                    isInvalid={touched.name && !!errors.name}
+                                    isValid={touched.name && !errors.name}
+                                />
+                                <Form.Control.Feedback type='invalid'>
+                                    {errors.name}
+                                </Form.Control.Feedback>
+                            </Form.Group>
 
-                    <Form.Group className='mb-2'>
-                    <Form.Label>Imagen (URL)</Form.Label>
-                    <Form.Control
-                        value={form.avatar}
-                        onChange={(e) => setForm({ ...form, avatar: e.target.value })}
-                        required
-                    />
-                    </Form.Group>
+                            <Form.Group className='mb-2' controlId='validationFormikAvatar'>
+                                <Form.Label>Imagen (URL)</Form.Label>
+                                <Form.Control
+                                    type='text'
+                                    name='avatar'
+                                    value={values.avatar}
+                                    onChange={handleChange}
+                                    isInvalid={touched.avatar && !!errors.avatar}
+                                    isValid={touched.avatar && !errors.avatar}
+                                />
+                                <Form.Control.Feedback type='invalid'>
+                                    {errors.avatar}
+                                </Form.Control.Feedback>
+                            </Form.Group>
 
-                    <Form.Group className='mb-2'>
-                    <Form.Label>Stock</Form.Label>
-                    <Form.Control
-                        type='number'
-                        value={form.stock}
-                        onChange={(e) =>
-                        setForm({ ...form, stock: Number(e.target.value) })
-                        }
-                        required
-                    />
-                    </Form.Group>
+                            <Form.Group className='mb-2' controlId='validationFormikStock'>
+                                <Form.Label>Stock</Form.Label>
+                                <Form.Control
+                                    type='number'
+                                    name='stock'
+                                    value={values.stock}
+                                    onChange={handleChange}
+                                    isInvalid={touched.stock && !!errors.stock}
+                                    isValid={touched.stock && !errors.stock}
+                                />
+                                <Form.Control.Feedback type='invalid'>
+                                    {errors.stock}
+                                </Form.Control.Feedback>
+                            </Form.Group>
 
-                    <Form.Group className='mb-2'>
-                        <Form.Label>Categoría</Form.Label>
-                        <Form.Select 
-                            aria-label='Selecciona una categoría'
-                            value={form.categoria}
-                            onChange={(e) => setForm({ ...form, categoria: e.target.value })}
-                            required
-                            >
-                                <option value=''>Seleccione una Categoría</option>
-                                <option value='rostro'>Rostro</option>
-                                <option value='ojos'>Ojos</option>
-                                <option value='labios'>Labios</option>
-                        </Form.Select>    
-                    </Form.Group>
+                            <Form.Group className='mb-2' controlId='validationFormikCategoria'>
+                                <Form.Label>Categoría</Form.Label>
+                                <Form.Select 
+                                    name='categoria'
+                                    aria-label='Selecciona una categoría'
+                                    value={values.categoria}
+                                    onChange={handleChange}
+                                    isInvalid={touched.categoria && !!errors.categoria}
+                                    isValid={touched.categoria && !errors.categoria}
+                                    >
+                                        <option value=''>Seleccione una Categoría</option>
+                                        <option value='rostro'>Rostro</option>
+                                        <option value='ojos'>Ojos</option>
+                                        <option value='labios'>Labios</option>
+                                </Form.Select>
+                                <Form.Control.Feedback type="invalid">
+                                    {errors.categoria}
+                                </Form.Control.Feedback>     
+                            </Form.Group>
 
-                    <Form.Group className='mb-2'>
-                    <Form.Label>Precio</Form.Label>
-                    <Form.Control
-                        value={form.precio}
-                        onChange={(e) =>
-                        setForm({ ...form, precio: e.target.value })
-                        }
-                        required
-                    />
-                    </Form.Group>
-                    <ButtonForm className='mt-2' buttonText='Guardar'/>
-                </Form>
+                            <Form.Group className='mb-2' controlId='validationFormikPrecio'>
+                                <Form.Label>Precio</Form.Label>
+                                <Form.Control
+                                    type='number'
+                                    name='precio'
+                                    step='0.01'
+                                    value={values.precio}
+                                    onChange={handleChange}
+                                    isInvalid={touched.precio && !!errors.precio}
+                                    isValid={touched.precio && !errors.precio}
+                                />
+                                <Form.Control.Feedback type="invalid">
+                                    {errors.precio}
+                                </Form.Control.Feedback> 
+                            </Form.Group>
+                            <ButtonForm className='mt-2' buttonText='Guardar'/>
+                        </Form>
+                    )}
+                    </Formik>
                 </Modal.Body>
             </Modal>
         </Container>
