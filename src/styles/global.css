@@ -26,7 +26,7 @@ a:hover {
     color: var(--color-light) !important;
     border: none !important;
     border-radius: 5px;
-    width: 100%;
+
 }
 
 .btn-card:hover,

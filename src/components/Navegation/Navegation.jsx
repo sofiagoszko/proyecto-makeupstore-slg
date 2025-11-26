@@ -9,17 +9,20 @@ import './Navegation.css';
 export default function Navegation() {
     const [expanded, setExpanded] = useState(false);
     const location = useLocation();
-    const { carrito } = useCarrito();
+    const { carrito, vaciarCarrito } = useCarrito();
     const navigate = useNavigate();
-
     const isAuth = localStorage.getItem('auth') === 'true';
+    const isAdmin = localStorage.getItem('admin') === 'true';
+    const username = localStorage.getItem('username');
 
     const cerrarSesion = () => 
         {
             localStorage.removeItem('auth');
+            localStorage.removeItem('admin');
+            localStorage.removeItem('username');
+            vaciarCarrito();
             navigate('/');
     };
-
 
     const totalItems = carrito.length;
 
@@ -39,23 +42,27 @@ export default function Navegation() {
                         <Nav.Link as={Link} to='/' className='link-nav'>
                             Home
                         </Nav.Link>
-
                         <Nav.Link as={Link} to='/contacto' className='link-nav'>
                             Contacto
                         </Nav.Link>
-    
                         <NavDropdown title='Producto'  className='link-nav'>
                             <NavDropdown.Item  as={Link} to='/productos'>Todos</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to='/productos/rostro'>Rostro</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to='/productos/ojos'>Ojos</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to='/productos/labios'>Labios</NavDropdown.Item>
                         </NavDropdown>
+                        {isAdmin && (
+                                <Nav.Link as={Link} to='/admin'>Administración</Nav.Link>
+                            )
+                        }
                     </Nav>
 
                     <Nav className='ms-auto flex-column flex-lg-row'>
                         {isAuth && (
                             <>
-                                <Nav.Link as={Link} to='#'>Perfil</Nav.Link>
+                                <Navbar.Text className='me-3 username'>
+                                    <strong>Hola, {username}!</strong>
+                                </Navbar.Text>
                                 <Nav.Link className='link-nav' onClick={cerrarSesion}>Cerrar sesión</Nav.Link>
                             </>
                         )}

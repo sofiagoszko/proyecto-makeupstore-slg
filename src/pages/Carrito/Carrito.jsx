@@ -3,6 +3,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import { Container, Table, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan, faSquarePlus } from '@fortawesome/free-regular-svg-icons';
+import ButtonForm from '../../components/ButtonForm/ButtonForm';
 import Swal from 'sweetalert2';
 import './Carrito.css';
 
@@ -51,13 +52,12 @@ export default function Carrito() {
                         <th>Acciones</th>
                     </tr>
                 </thead>
-
                 <tbody>
                     {carrito.map((item) => (
                         <tr key={item.id}>
                             <td>{item.name}</td>
                             <td>{item.cantidad}</td>
-                            <td className='text-nowrap'>$ { item.precio * item.cantidad }</td>
+                            <td className='text-nowrap'>$ { Number(item.precio * item.cantidad).toFixed(2) }</td>
                             <td>
                                 <Button variant='link' className='p-0 me-2' onClick={() => eliminarDelCarrito(item.id)}>
                                     <FontAwesomeIcon icon={faTrashCan} size='lg' color='#a4133c' className='font-icon'/>
@@ -71,8 +71,8 @@ export default function Carrito() {
                 </tbody>
             </Table>
 
-            <h4 className='text-end mt-3 carrito-title'>Total: $ {total.toFixed(2)}</h4>
-            <Button className='btn-card' onClick={pagarCompra}>Pagar</Button>
+            <h4 className='text-end mt-3 carrito-title'>Total: $ {Number(total).toFixed(2)}</h4>
+            <ButtonForm buttonText='Pagar' onClick={pagarCompra} type='button'/>
         </Container>
     );
 }
