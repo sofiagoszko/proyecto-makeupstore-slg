@@ -41,7 +41,7 @@ export default function Admin(){
         setForm({            
             name: '',
             avatar: '',
-            stock: 0,
+            stock: '',
             categoria: '',
             precio: '',
         });
@@ -64,7 +64,7 @@ export default function Admin(){
              setForm({
                 name: '',
                 avatar: '',
-                stock: 0,
+                stock: '',
                 categoria: '',
                 precio: '',
             });
