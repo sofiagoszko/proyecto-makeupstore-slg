@@ -13,11 +13,13 @@ export default function Navegation() {
     const navigate = useNavigate();
     const isAuth = localStorage.getItem('auth') === 'true';
     const isAdmin = localStorage.getItem('admin') === 'true';
+    const username = localStorage.getItem('username');
 
     const cerrarSesion = () => 
         {
             localStorage.removeItem('auth');
             localStorage.removeItem('admin');
+            localStorage.removeItem('username');
             vaciarCarrito();
             navigate('/');
     };
@@ -58,7 +60,9 @@ export default function Navegation() {
                     <Nav className='ms-auto flex-column flex-lg-row'>
                         {isAuth && (
                             <>
-                                <Nav.Link as={Link} to='#'>Perfil</Nav.Link>
+                                <Navbar.Text className='me-3 username'>
+                                    <strong>Hola, {username}!</strong>
+                                </Navbar.Text>
                                 <Nav.Link className='link-nav' onClick={cerrarSesion}>Cerrar sesión</Nav.Link>
                             </>
                         )}

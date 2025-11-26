@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Form, Button, Container, Row, Col, Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { Formik } from 'formik';
@@ -6,8 +5,6 @@ import * as yup from 'yup';
 import './Login.css';
 
 export default function Login() {
-    const [user, setUser] = useState('');
-    const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
     const schema = yup.object().shape({
@@ -15,10 +12,9 @@ export default function Login() {
         password: yup.string().required('Ingrese su contraseña'),
     })
 
-    const handleSubmit = (values) => {
-        setUser(values.user);
-        setPassword(values.password);   
+    const handleSubmit = (values) => {  
         localStorage.setItem('auth', 'true');
+        localStorage.setItem('username', values.user);
         if(values.user === 'admin' && values.password === '123'){
             localStorage.setItem('admin', 'true');
             navigate('/admin');
