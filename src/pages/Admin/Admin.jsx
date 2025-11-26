@@ -86,6 +86,7 @@ export default function Admin(){
 
         const method = edit ? 'PUT' : 'POST';
         const url = edit ? `${BASE_URL}/productos/${edit}` : `${BASE_URL}/productos`;
+        const alertTitle = edit ? 'Cambios realizados' : 'Producto Ingresado';
 
         fetch(url, {
             method: method,
@@ -94,6 +95,11 @@ export default function Admin(){
         })
         .then((res) => {
             if (!res.ok) throw new Error('Error al guardar el producto');
+            Swal.fire({
+                title: alertTitle,
+                icon: 'success',
+                draggable: true
+            });
             return res.json();
         })
         .then(() => {
@@ -114,7 +120,7 @@ export default function Admin(){
         }).then((res) => {
             if(res.isConfirmed){
                 Swal.fire({
-                    title: "¡Eliminado!",
+                    title: "Eliminado",
                     icon: "success"
                 });
                 fetch(`${BASE_URL}/productos/${id}`, {method: 'DELETE'})
