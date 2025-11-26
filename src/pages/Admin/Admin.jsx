@@ -4,6 +4,7 @@ import { Container, Table, Button, Modal, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan, faPenToSquare } from '@fortawesome/free-regular-svg-icons';
 import ButtonForm from '../../components/ButtonForm/ButtonForm';
+import Swal from 'sweetalert2';
 import './AdminCrud.css';
 
 export default function Admin(){
@@ -103,14 +104,27 @@ export default function Admin(){
     };
 
     const handleDelete = (id) => {
-        if (!window.confirm('¿Seguro que quieres eliminar este producto?')) return;
-
-        fetch(`${BASE_URL}/productos/${id}`, {method: 'DELETE'})
-        .then((res) => {
-            if(!res.ok) throw new Error('Error al eliminar el producto');
-            getProductos();
+        Swal.fire({
+            title: '¿Deseas eliminar este producto?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#a4133c',
+            confirmButtonText: 'Aceptar',
+            denyButtonText: 'Cancelar'
+        }).then((res) => {
+            if(res.isConfirmed){
+                Swal.fire({
+                    title: "¡Eliminado!",
+                    icon: "success"
+                });
+                fetch(`${BASE_URL}/productos/${id}`, {method: 'DELETE'})
+                .then((res) => {
+                if(!res.ok) throw new Error('Error al eliminar el producto');
+                getProductos();
+                })
+                .catch((error) => console.log(error));
+            }
         })
-        .catch((error) => console.log(error));
     }
 
     if(!isAuth || !isAdmin){
@@ -153,7 +167,7 @@ export default function Admin(){
 
             <Modal show={showModal} onHide={handleClose}>
                 <Modal.Header closeButton>
-                <Modal.Title>{edit ? 'Editar' : 'Agregar'} Producto</Modal.Title>
+                <Modal.Title className='modal-title'>{edit ? 'Editar' : 'Agregar'} Producto</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                 <Form onSubmit={handleSubmit}>
@@ -212,10 +226,7 @@ export default function Admin(){
                         required
                     />
                     </Form.Group>
-
-                    <Button type='submit' className='mt-2'>
-                        Guardar
-                    </Button>
+                    <ButtonForm className='mt-2' buttonText='Guardar'/>
                 </Form>
                 </Modal.Body>
             </Modal>
