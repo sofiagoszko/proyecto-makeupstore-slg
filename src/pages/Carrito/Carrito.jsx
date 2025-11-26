@@ -72,7 +72,7 @@ export default function Carrito() {
             </Table>
 
             <h4 className='text-end mt-3 carrito-title'>Total: $ {total.toFixed(2)}</h4>
-            <ButtonForm buttonText='Pagar' />
+            <ButtonForm buttonText='Pagar' onClick={pagarCompra} type='button'/>
         </Container>
     );
 }
