@@ -1,5 +1,5 @@
 import { Button, Card} from 'react-bootstrap';
-import { useCarrito } from '../CarritoContext/CarritoContext';
+import { useCarrito } from '../../context/CarritoContext/CarritoContext';
 import { useNavigate } from 'react-router-dom';
 import './CardProducto.css';
 

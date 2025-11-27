@@ -1,4 +1,4 @@
-import { useCarrito } from '../../components/CarritoContext/CarritoContext';
+import { useCarrito } from '../../context/CarritoContext/CarritoContext';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { Container, Table, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
