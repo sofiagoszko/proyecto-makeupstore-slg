@@ -1,0 +1,19 @@
+.pagination .page-link {
+    color: var(--color-primary);
+    cursor: pointer;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--color-primary);
+    border-color:var(--color-primary);
+    color: var(--color-light);
+}
+
+.pagination .page-link:hover {
+    color: var(--color-primary);
+    background-color: var(--color-light);
+}
+
+.pagination .page-item.disabled .page-link {
+    cursor: not-allowed;
+}
