@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const usePagination = (items, itemsPerPage = 10) => {
+export const usePagination = (items, itemsPerPage = 12) => {
     const [currentPage, setCurrentPage] = useState(1);
 
     const indexOfLastItem = currentPage * itemsPerPage;

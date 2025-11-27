@@ -1,17 +1,20 @@
 import { Button, Card} from 'react-bootstrap';
 import { useCarrito } from '../../context/CarritoContext/CarritoContext';
 import { useNavigate } from 'react-router-dom';
+import { usePagination } from '../../hooks/usePagination';
+import PaginationComponent from '../PaginationComponent/PaginationComponent'; 
 import './CardProducto.css';
 
 export default function CardProducto({productos}) {
     const auth = localStorage.getItem('auth') === 'true';
     const navigate = useNavigate();
     const { agregarAlCarrito } = useCarrito(); 
+    const { currentPage, currentItems, totalPages, handlePageChange } = usePagination(productos, 12);
 
     return (
         <>
             <div className='row justify-content-center align-items-stretch g-4'>
-                {productos.map(producto => 
+                {currentItems.map(producto => 
                     <div key={producto.id} className='col-sm-6 col-md-4 col-lg-3 d-flex'>
                         <Card className='h-100 shadow-sm w-100'>
                             <Card.Img variant='top' src={producto.avatar} alt={producto.name} className='img-card'/>
@@ -35,6 +38,11 @@ export default function CardProducto({productos}) {
                     </div>
                 )}
             </div>
+            <PaginationComponent 
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={handlePageChange}
+            />
         </>
     );
 }
