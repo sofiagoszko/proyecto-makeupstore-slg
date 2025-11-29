@@ -15,7 +15,7 @@ function CarouselHome() {
     })
     .catch((error) => console.error('Error al cargar imagenes: ', error))
     .finally(() => setCargando(false))
-  }, []);
+  }, [BASE_URL]);
 
   if(cargando) return <p>Cargando imágenes...</p>;
 
