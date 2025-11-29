@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import CardProducto from "../../components/CardProducto/CardProducto";
 import { Container, Form } from 'react-bootstrap';
-import makeup from '../../assets/makeup.jpeg';
-import labiosImg from '../../assets/labios.png';
-import rostroImg from '../../assets/rostro.png';
-import ojosImg from '../../assets/ojos.jpg';
+import makeup from '../../assets/makeup.webp';
+import labiosImg from '../../assets/labios.webp';
+import rostroImg from '../../assets/rostro.webp';
+import ojosImg from '../../assets/ojos.webp';
 import Banner from "../../components/Banner/Banner";
 import './Productos.css';
 

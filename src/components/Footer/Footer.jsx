@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookF, faInstagram, faTiktok } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import { faFacebookF } from '@fortawesome/free-brands-svg-icons/faFacebookF';
+import { faInstagram } from '@fortawesome/free-brands-svg-icons/faInstagram';
+import { faTiktok } from '@fortawesome/free-brands-svg-icons/faTiktok';
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons/faEnvelope';
 import './Footer.css';
 
 export default function Footer(){

@@ -1,6 +1,6 @@
 import { Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import './CarfdCategoriaHome.css';
+import './CardCategoriaHome.css';
 
 
 export default function CardCategoriaHome({imagen, text, ruta}) {
