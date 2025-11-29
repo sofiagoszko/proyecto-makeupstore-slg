@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Container, Navbar, Nav, NavDropdown, Badge, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import { useCarrito } from '../CarritoContext/CarritoContext';
+import { useCarrito } from '../../context/CarritoContext/CarritoContext';
 import './Navegation.css';
 
 export default function Navegation() {

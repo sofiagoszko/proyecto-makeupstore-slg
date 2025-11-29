@@ -3,6 +3,8 @@ import { Navigate } from 'react-router-dom';
 import { Container, Table, Button, Modal, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan, faPenToSquare } from '@fortawesome/free-regular-svg-icons';
+import { usePagination } from '../../hooks/usePagination';
+import PaginationComponent from '../../components/PaginationComponent/PaginationComponent';
 import ButtonForm from '../../components/ButtonForm/ButtonForm';
 import Swal from 'sweetalert2';
 import { Formik } from 'formik';
@@ -23,6 +25,7 @@ export default function Admin(){
         precio: '',
     });
     const [edit, setEdit] = useState(null);
+    const { currentPage, currentItems, totalPages, handlePageChange } = usePagination(productos, 10);
 
     const schema = yup.object().shape({
         name: yup.string().required('Ingrese el nombre del producto'),
@@ -158,7 +161,7 @@ export default function Admin(){
                     </tr>
                 </thead>
                 <tbody>
-                    {productos.map((producto) => (
+                    {currentItems.map((producto) => (
                         <tr key={producto.id}>
                             <td>{producto.name}</td>
                             <td>{producto.categoria}</td>
@@ -176,6 +179,12 @@ export default function Admin(){
                     ))}
                 </tbody>
             </Table>
+
+            <PaginationComponent 
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={handlePageChange}
+            />
 
             <Modal show={showModal} onHide={handleClose}>
                 <Modal.Header closeButton>

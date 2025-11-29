@@ -11,7 +11,7 @@ import Login from './pages/Login/Login';
 import Admin from './pages/Admin/Admin';
 import NotFound from './pages/NotFound/NotFound';
 import Carrito from './pages/Carrito/Carrito';
-import { CarritoProvider } from './components/CarritoContext/CarritoContext';
+import { CarritoProvider } from './context/CarritoContext/CarritoContext';
 import './styles/global.css';
 
 function App() {
