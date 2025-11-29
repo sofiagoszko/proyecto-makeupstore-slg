@@ -1,10 +1,10 @@
 import { Container } from 'react-bootstrap';
-import {Form, Col, Row, Button, InputGroup } from 'react-bootstrap';
+import {Form, Col, Row } from 'react-bootstrap';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import Swal from 'sweetalert2';
-import contacto from '../../assets/contacto.jpg';
-import contacto2 from '../../assets/contacto-2.jpg';
+import contacto from '../../assets/contacto.webp';
+import contacto2 from '../../assets/contacto-2.webp';
 import Banner from '../../components/Banner/Banner';
 import ButtonForm from '../../components/ButtonForm/ButtonForm';
 import './Contacto.css';

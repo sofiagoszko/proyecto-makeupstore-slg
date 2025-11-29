@@ -1,12 +1,14 @@
 import CarouselHome from '../../components/CarouselHome/CarouselHome';
 import { Container } from 'react-bootstrap';
-import { faTruck, faFaceSmile, faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faTruck } from '@fortawesome/free-regular-svg-icons/faTruck';
+import { faFaceSmile } from '@fortawesome/free-regular-svg-icons/faFaceSmile';
+import { faHeart } from '@fortawesome/free-regular-svg-icons/faHeart';
 import CardInfoHome from '../../components/CardInfoHome/CardInfoHome';
 import CardCategoriaHome from '../../components/CardCategoriaHome/CardCategoriaHome';
 import './Home.css';
-import labiosImg from '../../assets/labios.png';
-import rostroImg from '../../assets/rostro.png';
-import ojosImg from '../../assets/ojos.jpg';
+import labiosImg from '../../assets/labios.webp';
+import rostroImg from '../../assets/rostro.webp';
+import ojosImg from '../../assets/ojos.webp';
 
 export default function Home (){
     return(
