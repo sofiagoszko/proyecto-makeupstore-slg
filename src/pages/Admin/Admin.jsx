@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Navigate } from 'react-router-dom';
 import { Container, Table, Button, Modal, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -35,18 +35,18 @@ export default function Admin(){
         precio: yup.number().positive('El precio debe ser mayor a 0').required('Ingrese el precio'),
     });
     
-    const getProductos = () =>{
+    const getProductos = useCallback (() =>{
         fetch(`${BASE_URL}/productos`)
         .then((res) => res.json())
         .then((data) => setProductos(data))
         .catch((error) => console.error('Error al obtener los productos: ', error));
-    };
+    },[BASE_URL]);
 
     useEffect(() => {
         if(isAdmin && isAuth){
             getProductos();
         }
-    },[isAuth, isAdmin]);
+    },[isAuth, isAdmin, getProductos]);
 
     const handleClose = () =>{
         setShowModal(false);

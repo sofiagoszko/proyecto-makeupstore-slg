@@ -24,7 +24,7 @@ export default function Productos(){
       })
       .catch((error) => console.error('Error al cargar productos: ', error))
       .finally(() => setCargando(false))
-  }, []);
+  }, [BASE_URL]);
 
   useEffect(() => {
     if (categoriaUrl) setCategoria(categoriaUrl);
