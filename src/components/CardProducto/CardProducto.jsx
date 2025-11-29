@@ -9,7 +9,7 @@ export default function CardProducto({productos}) {
     const auth = localStorage.getItem('auth') === 'true';
     const navigate = useNavigate();
     const { agregarAlCarrito } = useCarrito(); 
-    const { currentPage, currentItems, totalPages, handlePageChange } = usePagination(productos, 12);
+    const { currentPage, currentItems, totalPages, handlePageChange } = usePagination(productos);
 
     return (
         <>
