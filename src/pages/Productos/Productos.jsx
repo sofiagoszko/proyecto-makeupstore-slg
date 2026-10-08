@@ -73,7 +73,7 @@ export default function Productos(){
         </div>)}
 
       <Container className="my-5">
-        <CardProducto productos={productosFiltrados} />
+        <CardProducto key={categoria} productos={productosFiltrados} />
       </Container>
     </>
   );
