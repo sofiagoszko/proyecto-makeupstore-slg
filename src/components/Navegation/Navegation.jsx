@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Container, Navbar, Nav, NavDropdown, Badge, Button } from 'react-bootstrap';
+import { Container, Navbar, Nav, NavDropdown, Badge } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons/faShoppingCart';
 import { useCarrito } from '../../context/CarritoContext/CarritoContext';
@@ -24,7 +24,7 @@ export default function Navegation() {
             navigate('/');
     };
 
-    const totalItems = carrito.length;
+    const totalItems = carrito.reduce((acc, item) => acc + item.cantidad, 0);
 
     useEffect(() => {
         setExpanded(false);
