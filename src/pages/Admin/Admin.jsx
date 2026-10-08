@@ -126,16 +126,16 @@ export default function Admin(){
             showCancelButton: true,
             confirmButtonColor: '#a4133c',
             confirmButtonText: 'Aceptar',
-            denyButtonText: 'Cancelar'
+            cancelButtonText: 'Cancelar'
         }).then((res) => {
             if(res.isConfirmed){
+                fetch(`${BASE_URL}/productos/${id}`, {method: 'DELETE'})
+                .then((res) => {
+                if(!res.ok) throw new Error('Error al eliminar el producto');
                 Swal.fire({
                     title: "Eliminado",
                     icon: "success"
                 });
-                fetch(`${BASE_URL}/productos/${id}`, {method: 'DELETE'})
-                .then((res) => {
-                if(!res.ok) throw new Error('Error al eliminar el producto');
                 getProductos();
                 })
                 .catch((error) => console.log(error));
