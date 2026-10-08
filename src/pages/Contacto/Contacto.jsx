@@ -13,7 +13,7 @@ export default function Contacto(){
   const schema = yup.object().shape({
       nombre: yup.string().required('Ingrese su nombre'),
       apellido: yup.string().required('Ingrese su apellido'),
-      email: yup.string().email().required('Ingrese su email'),
+      email: yup.string().email('Ingrese un email válido').required('Ingrese su email'),
       consulta: yup.string().required('Ingrese su consulta'),
   })
 
